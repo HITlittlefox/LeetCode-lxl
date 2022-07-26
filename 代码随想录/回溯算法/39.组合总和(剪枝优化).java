@@ -14,24 +14,21 @@ class Solution {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         int sum = 0;
-        // 递归函数参数
         backtracking(candidates, target, sum, 0);
         return result;
     }
 
     private void backtracking(int[] candidates, int target, int sum, int startIndex) {
-        // 递归终止条件
+        // 如果 sum + candidates[i] > target 就终止遍历
         if (sum > target) {
             return;
         }
         if (sum == target) {
-            // result.add(path);
             result.add(new ArrayList<>(path));
 
             return;
         }
 
-        // 单层搜索的逻辑
         for (int i = startIndex; i < candidates.length; i++) {
             sum += candidates[i];
             path.add(candidates[i]);

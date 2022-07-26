@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /*
@@ -11,7 +10,10 @@ import java.util.List;
 // @lc code=start
 class Solution {
     // 初始对应所有的数字，为了直接对应2-9，新增了两个无效的字符串""
-    String[] numString = { "", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+    String[] numString = { "",
+            "", "abc", "def",
+            "ghi", "jkl", "mno",
+            "pqrs", "tuv", "wxyz" };
 
     // 设置全局列表存储最后的结果
     List<String> list = new ArrayList<>();
