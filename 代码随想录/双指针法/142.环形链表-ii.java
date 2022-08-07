@@ -5,17 +5,6 @@
  */
 
 // @lc code=start
-/**
- * Definition for singly-linked list.
- * class ListNode {
- * int val;
- * ListNode next;
- * ListNode(int x) {
- * val = x;
- * next = null;
- * }
- * }
- */
 class Solution {
     public ListNode detectCycle(ListNode head) {
         ListNode fast = head;
