@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "newcoder",
         "HOT100",
-        "newcoder"
+        "labuladong/labuladong的题目列表"
     ]
 }
