@@ -26,7 +26,7 @@ class ID15ThreeSum {
                     return res;
                 }
 
-                // 对第一个数去重
+                // 对第一个数去重：不能有重复的三元组，但三元组内的元素是可以重复的
                 if (cur > 0 && nums[cur] == nums[cur - 1]) {
                     continue;
                 }
