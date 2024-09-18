@@ -31,16 +31,16 @@ class ID34FindFirstAndLastPositionOfElementInSortedArray {
             }
 
             // <=该元素的最后一个下标 是 >= (该元素+1) 的第一个下标 的左边一个位置
-            int end = lowBound(nums, target + 1) - 1;
+            int end = lowBound3(nums, target + 1) - 1;
             return new int[]{start, end};
         }
 
         // [left, right]
         public int lowBound(int[] nums, int target) {
-            int right = nums.length - 1;
-            int left = 0;
+            int left = 0, right = nums.length - 1;
 
             // left与right错位了，才是终止条件
+            // 区间不为空
             while (left <= right) {
                 int mid = left + (right - left) / 2;
                 if (nums[mid] < target) {
@@ -49,7 +49,38 @@ class ID34FindFirstAndLastPositionOfElementInSortedArray {
                     right = mid - 1;// [left, mid-1]
                 }
             }
-            return left;
+            return left; // right + 1
+        }
+
+        // [left, right)
+        public int lowBound2(int[] nums, int target) {
+            int left = 0, right = nums.length;
+
+            while (left < right) {
+                int mid = left + (right - left) / 2;
+                if (nums[mid] < target) {
+                    left = mid + 1; // [mid+1, right)
+                } else {
+                    right = mid;// [left, mid)
+                }
+            }
+            return left; // right
+        }
+
+        // (left, right)
+        public int lowBound3(int[] nums, int target) {
+            int left = -1, right = nums.length;
+
+            while (left + 1 < right) {
+                int mid = left + (right - left) / 2;
+                // 此处必须是 < 或者 >=
+                if (nums[mid] < target) {
+                    left = mid; // (mid, right)
+                } else {
+                    right = mid;// (left, mid)
+                }
+            }
+            return right; // left + 1
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
